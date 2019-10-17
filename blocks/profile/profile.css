@@ -1,0 +1,7 @@
+@import url(../profile/edit-button/edit-button.css);
+
+.profile {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
