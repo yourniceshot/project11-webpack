@@ -184,12 +184,15 @@ class Api {
     })
   }
 }
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3/' : 'https://praktikum.tk/cohort3/';
+
 const root = document.querySelector('.root');
 const placesList = root.querySelector('.places-list');
 const popupNewPlace = root.querySelector('.popup-newplace');
 const popupEditProfile = document.querySelector('.popup-profile');
+const popupForm = document.querySelectorAll('.popup');
 const addBttn = root.querySelector('.user-info__button');
+const xBttn = document.querySelectorAll('.popup__close');
+const likeBttn = document.querySelector('.place-card__like-icon');
 const plusBttn = document.querySelector('.plus-button');
 const editBttn = document.querySelector('.user-info__edit-button');
 const saveBttn = document.querySelector('.save-button');
@@ -207,7 +210,7 @@ const newPlaceForm = document.forms.new;
 const popupPlace = new Popup(popupNewPlace, addBttn);
 const popupInfo = new Popup(popupEditProfile, editBttn);
 const scaledPopup = root.querySelector('.popup-big');
-const api = new Api(serverUrl, 'c01b9357-4aba-4abb-8c3d-32a2a5face4c');
+const api = new Api('http://95.216.175.5/cohort3/', 'c01b9357-4aba-4abb-8c3d-32a2a5face4c');
 const avaBttn = root.querySelector('.user-info__photo');
 const popupAva = root.querySelector('.popup-avatar');
 const popupUserpic = new Popup(popupAva, avaBttn);

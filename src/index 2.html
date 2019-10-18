@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="style.da2d4efbe9ceae55317f.css?dd1a9ff1730396df7e32">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
 <body>
   <div class="root">
@@ -76,6 +76,6 @@
       </div>
     </div>
   </div>
-  <script src="main.98448238f1b1fb588957.js?dd1a9ff1730396df7e32"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>
