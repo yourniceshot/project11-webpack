@@ -20,9 +20,13 @@ module: {
         exclude: /node_modules/ 
     },
     {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-    },
+        test: /\.css$/i,
+        use: [
+            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+            'css-loader', 
+            'postcss-loader'
+        ]
+      },
     {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=./vendor/[name].[ext]'
@@ -35,21 +39,21 @@ module: {
                  loader: 'image-webpack-loader',
              },
         ]
-        },
-    {
-        test: /\.css$/i,
-        use: [
-            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                'css-loader', 
-                'postcss-loader'
-            ]
-        },
+        }
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                    preset: ['default'],
+            },
+            canPrint: true
+       }),
         new HtmlWebpackPlugin({
             inject: false,
             hash: true,
@@ -59,14 +63,6 @@ module: {
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }),
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorPluginOptions: {
-                    preset: ['default'],
-            },
-            canPrint: true
-       })
+        })
     ]
 };
