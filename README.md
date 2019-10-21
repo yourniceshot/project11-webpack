@@ -4,6 +4,6 @@ ver 0.1
 ## Description
 This project was made to test and improve my skills in using Java Script, terminal, github and webpack. It represents one-page 
 website with server binding, in which user can add new cards or delete some, change avatar, name or description, put or remove 
-likes. All files are build together with webpack technology. I refactored my code by using ES6 modules ad well.
+likes. All files are build together with webpack technology. I refactored my code by using ES6 modules as well.
 ## Technologies 
 HTML, CSS, JS, Git, GitHub, webpack, ES6 modules.
